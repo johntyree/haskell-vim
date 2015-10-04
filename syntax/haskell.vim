@@ -74,7 +74,7 @@ syn region haskellQuoted start="\<'\+" end="\>"
   \ haskellParens,
   \ haskellOperators,
   \ haskellIdentifier
-syn match haskellLineComment "---*\([^-!#$%&\*\+./<=>\?@\\^|~].*\)\?$"
+syn match haskellLineComment "--.*$"
   \ contains=
   \ haskellTodo,
   \ @Spell
@@ -94,7 +94,6 @@ syn region haskellBlockComment start="{-" end="-}"
 " FIXME: haddock block comments should be able to contain hsBlockComments, but
 " it doesn't seem to work at the moment.
 syn region haskellHaddockLineComment start='{-|' end='-}' contains=hsFIXME,@Spell
-syn match hsLineComment "--.*$" contains=hsFIXME,@Spell
 " Line-based haddock comments are trickier - they continue until
 " the next line that isn't part of the same block of comments.
 syn region haskellHaddockLineComment start='-- |' end='^\(\s*--\)\@!' contains=hsFIXME,@Spell
